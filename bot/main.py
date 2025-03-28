@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 bot_name = os.getenv("BOT_NAME")
 keywords = os.getenv("KEYWORDS").split(",")
-subreddits = os.getenv("SUBREDDITS").split(",")
+subreddits = os.getenv("SUBREDDITS")
 log_file = "./logs.txt"
 
 # Init bot
@@ -58,12 +58,11 @@ def main():
   comments = read_logs()
   print(f"Starting {bot_name}")
   try:
-    for subreddit in subreddits:
-      for comment in reddit.subreddit(subreddit).stream.comments():
-        for keyword in keywords:
-          if keyword in comment.body.lower() and comment.id not in comments:
-            write_logs(comments, comment)
-            reply(comment)
+    for comment in reddit.subreddit(subreddits).stream.comments():
+      for keyword in keywords:
+        if keyword in comment.body.lower() and comment.id not in comments:
+          write_logs(comments, comment)
+          reply(comment)
   except Exception as e:
     print("Exception caught: ")
     print(e)
