@@ -1,0 +1,9 @@
+services:
+  bot:
+    image: fufufafa-bot:latest
+    container_name: fufufafa-bot
+    restart: unless-stopped
+    env_file: ".env"
+    volumes:
+    - ./praw.ini:/home/bot/praw.ini
+    - ./logs.txt:/home/bot/logs.txt
