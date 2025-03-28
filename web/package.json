@@ -1,0 +1,35 @@
+{
+  "name": "fufufafa.foo",
+  "description": "fufufafa.foo",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fufufafa-foo/fufufafa.foo.git"
+  },
+  "keywords": [
+    "fufufafa"
+  ],
+  "author": "fufufafa-foo",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/fufufafa-foo/fufufafa.foo/issues"
+  },
+  "homepage": "https://fufufafa.foo",
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "prettier": "^3.5.3",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0",
+    "vue-tsc": "^2.2.4"
+  }
+}
