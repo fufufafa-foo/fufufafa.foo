@@ -2,7 +2,10 @@
   <figure>
     <img :src="img" :alt="title" />
     <hr />
-    <figcaption>{{ id }}. {{ title }}</figcaption>
+    <figcaption>
+      <span>{{ id }}. {{ title }}</span>
+      <a v-if="link" :href="link" target="_blank" rel="nofollow">source</a>
+    </figcaption>
   </figure>
 </template>
 
@@ -24,5 +27,11 @@ figure img {
 
 hr {
   margin-bottom: 0.75rem;
+}
+
+figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
 </style>
