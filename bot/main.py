@@ -34,13 +34,21 @@ def write_logs(logs, comment):
 
 def parse_quote(s):
   pattern = r'\s+https:\/\/[^\s]+'
-  return re.sub(pattern, '', s).strip()
+  return re.sub(pattern, '', s).replace('|', '').strip()
+
+
+def exclude_quotes(s):
+  excluded_keywords = ["(cerita prabowo mendaki semeru)", "(pantun)"]
+  return all([x not in s for x in excluded_keywords])
 
 
 def read_quotes():
-  with open("../raw/list.txt", "r") as f:
-    l = list(map(parse_quote, f.read().splitlines()))
-    return [k for k in l if "(" not in k and ")" not in k]
+  l = list()
+  raw_files = ["list.txt", "list-2.txt"]
+  for file in raw_files:
+    with open("../raw/" + file, "r") as f:
+      l.extend(list(map(parse_quote, f.read().splitlines())))
+  return list(set(filter(exclude_quotes, l)))
 
 
 def get_random_quote():
