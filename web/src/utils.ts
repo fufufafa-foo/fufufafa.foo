@@ -1,4 +1,4 @@
-import readme from "../../readme.md?raw";
+import readme from "../../readme-1.md?raw";
 
 const LINE_OFFSET = 5;
 const readmeLines = readme.split("\n");
